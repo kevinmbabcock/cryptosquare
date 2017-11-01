@@ -10,6 +10,8 @@ $(document).ready(function() {
     var numberOfColumns = Math.floor(Math.sqrt(clearStringLength));
     var arrayOfRows = [];
     var outputArray = [];
+    var finalString = "";
+    var outputString = "";
 
     for (index = 0; index < numberOfRows; index ++) {
       var newArray = [];
@@ -25,14 +27,20 @@ $(document).ready(function() {
       }
     }
 
-    for (var index = 0; index < numberOfColumns; index++) {
+    for (var index = 0; index < arrayOfRows.length; index++) {
       for (var j = 0; j < arrayOfRows.length; j++) {
         var letter = arrayOfRows[j];
         outputArray.push(letter[index]);
         // outputArray.push(arrayOfRows[index]);
       }
     }
-    console.log(outputArray);
+    for (var index = 0; index < outputArray.length; index ++) {
+      finalString = finalString.concat(outputArray[index]);
+    }
+
+    for (var index = 0; index < finalString.length; index ++) {
+      outputString = outputString.concat(finalString.slice((numberOfColumns * index), (numberOfColumns * (index + 1))) + " ");
+    }
 
   })
 
