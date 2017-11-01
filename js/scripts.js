@@ -12,10 +12,9 @@ $(document).ready(function() {
     var outputArray = [];
     var finalString = "";
     var outputString = "";
-
+    $(".result").show();
 
     var characters = clearString.split("");
-
 
     for (index = 0; index < numberOfRows; index ++) {
       var newArray = [];
@@ -31,13 +30,13 @@ $(document).ready(function() {
       }
     }
 
-//create loop to remove undefined elements
+    //loop through last array to remove undefined elements
     if (Math.sqrt(characters.length) !== numberOfRows * numberOfColumns) {
       var numberOfIterations = (numberOfRows * numberOfColumns) - characters.length;
       for (index = 0; index < numberOfIterations; index++) {
         arrayOfRows[numberOfRows - 1].pop();
       }
-      //console.log(arrayOfRows);
+
     }
 
     for (var index = 0; index < arrayOfRows.length; index++) {
@@ -53,11 +52,13 @@ $(document).ready(function() {
     for (var index = 0; index < outputArray.length; index ++) {
       finalString = finalString.concat(outputArray[index]);
     }
-
+    console.log(numberOfColumns)
     for (var index = 0; index < finalString.length; index ++) {
-      outputString = outputString.concat(finalString.slice((numberOfColumns * index), (numberOfColumns * (index + 1))) + " ");
+      outputString = outputString.concat(finalString.slice((5 * index), (5 * (index + 1))) + " ");
     }
-    console.log(outputArray);
+    $("#scrambleSentence").text(outputString);
+
+
   })
 
 })
