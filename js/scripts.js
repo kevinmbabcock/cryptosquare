@@ -37,13 +37,17 @@ $(document).ready(function() {
       for (index = 0; index < numberOfIterations; index++) {
         arrayOfRows[numberOfRows - 1].pop();
       }
-      console.log(arrayOfRows);
+      //console.log(arrayOfRows);
     }
 
     for (var index = 0; index < arrayOfRows.length; index++) {
       for (var j = 0; j < arrayOfRows.length; j++) {
         var currentArray = arrayOfRows[j];
+        if (!currentArray[index]) {
+           //do nothing
+        } else {
         outputArray.push(currentArray[index]);
+        }
       }
     }
     for (var index = 0; index < outputArray.length; index ++) {
