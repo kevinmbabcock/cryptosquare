@@ -12,20 +12,26 @@ $(document).ready(function() {
     var outputArray = [];
     var finalString = "";
     var outputString = "";
+    //console.log(numberOfColumns);
+    //console.log(numberOfRows);
+
+    var characters = clearString.split("");
+    //console.log(characters.length);
 
     for (index = 0; index < numberOfRows; index ++) {
       var newArray = [];
       arrayOfRows.push(newArray);
     }
-
-    var characters = clearString.split("");
-
+    if (((numberOfColumns * numberOfColumns) + numberOfColumns) < characters.length) {
+      numberOfColumns++;
+    }
 
     for (var index = 0; index < numberOfRows; index++) {
       for (var j = index * numberOfColumns; j < numberOfColumns * (index + 1); j++) {
         arrayOfRows[index].push(characters[j]);
       }
     }
+    console.log(arrayOfRows);
 
     for (var index = 0; index < arrayOfRows.length; index++) {
       for (var j = 0; j < arrayOfRows.length; j++) {
@@ -41,7 +47,7 @@ $(document).ready(function() {
     for (var index = 0; index < finalString.length; index ++) {
       outputString = outputString.concat(finalString.slice((numberOfColumns * index), (numberOfColumns * (index + 1))) + " ");
     }
-
+    console.log(outputArray);
   })
 
 })
