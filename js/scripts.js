@@ -12,11 +12,10 @@ $(document).ready(function() {
     var outputArray = [];
     var finalString = "";
     var outputString = "";
-    //console.log(numberOfColumns);
-    //console.log(numberOfRows);
+
 
     var characters = clearString.split("");
-    //console.log(characters.length);
+
 
     for (index = 0; index < numberOfRows; index ++) {
       var newArray = [];
@@ -31,13 +30,20 @@ $(document).ready(function() {
         arrayOfRows[index].push(characters[j]);
       }
     }
-    console.log(arrayOfRows);
+
+//create loop to remove undefined elements
+    if (Math.sqrt(characters.length) !== numberOfRows * numberOfColumns) {
+      var numberOfIterations = (numberOfRows * numberOfColumns) - characters.length;
+      for (index = 0; index < numberOfIterations; index++) {
+        arrayOfRows[numberOfRows - 1].pop();
+      }
+      console.log(arrayOfRows);
+    }
 
     for (var index = 0; index < arrayOfRows.length; index++) {
       for (var j = 0; j < arrayOfRows.length; j++) {
-        var letter = arrayOfRows[j];
-        outputArray.push(letter[index]);
-        // outputArray.push(arrayOfRows[index]);
+        var currentArray = arrayOfRows[j];
+        outputArray.push(currentArray[index]);
       }
     }
     for (var index = 0; index < outputArray.length; index ++) {
