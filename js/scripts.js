@@ -16,9 +16,20 @@ $(document).ready(function() {
       var newArray = [];
       arrayOfRows.push(newArray);
     }
-    // for (index = 0; index < numberOfRows; index ++) {
-    //   for (index)
-    // }
+
+    var characters = clearString.split("");
+
+    //console.log(numberOfColumns);
+    for (var index = 0; index < numberOfRows; index++) {
+      for (var j = index * numberOfColumns; j < numberOfColumns * (index + 1); j++) {
+        arrayOfRows[index].push(characters[j]);
+
+      }
+
+    }
+    arrayOfRows.forEach(function(row) {
+      console.log(row);
+    })
   })
 
 })
